@@ -143,7 +143,18 @@ class XMLRecipeParser(QtWidgets.QWidget):
                 
                 if new_node is not None:
                     primitives_xml.append(new_node)
-                    
+            elif child.tag == "delay": # Handle <delay> tag
+                new_node = daveActions.DADelay().createETree({"delay": child.text})
+                if new_node is not None:
+                    primitives_xml.append(new_node)
+            elif child.tag == "copy_directory": # Handle <copy_directory> tag
+                source_path = child.find("source_path").text
+                target_path = child.find("target_path").text
+                delete_source = eval(child.find("delete_source").text)
+                dict_ = {"source_path":source_path,"target_path":target_path,"delete_source":delete_source}
+                new_node = daveActions.DACopyFolders().createETree(dict_)
+                if new_node is not None:
+                    primitives_xml.append(new_node)
             else:
                 pass
                 ## Eventually display an unknown tag error. For now ignore
@@ -284,20 +295,18 @@ class XMLRecipeParser(QtWidgets.QWidget):
                 if loop_variable_xml == None and os.path.isfile(path_to_loop_variable_xml):
                     new_loop_variable = ElementTree.Element("variable_entry")
                     loop_variable_xml = ElementTree.ElementTree(new_loop_variable)
-                    pos_fp = open(path_to_loop_variable_xml, "r")
                     # Convert position data to elements
-                    while True:
-                        line = pos_fp.readline()
-                        if not line: break
-                        [x, y] = line.split(",")
-                        new_value = ElementTree.SubElement(new_loop_variable, "value")
-                        new_value.text = "\n"
+                    for line in open(path_to_loop_variable_xml, "r"):
+                        if ',' in line:
+                            [x, y] = line.split(",")
+                            new_value = ElementTree.SubElement(new_loop_variable, "value")
+                            new_value.text = "\n"
 
-                        x_child = ElementTree.SubElement(new_value, "stage_x")
-                        x_child.text = x
+                            x_child = ElementTree.SubElement(new_value, "stage_x")
+                            x_child.text = x
 
-                        y_child = ElementTree.SubElement(new_value, "stage_y")
-                        y_child.text = y
+                            y_child = ElementTree.SubElement(new_value, "stage_y")
+                            y_child.text = y
 
                 loop_variables = loop_variable_xml.getroot()
 

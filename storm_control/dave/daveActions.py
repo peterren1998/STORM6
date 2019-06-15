@@ -12,6 +12,7 @@
 
 from xml.etree import ElementTree
 from PyQt5 import QtCore
+import os
 
 import storm_control.sc_library.tcpMessage as tcpMessage
 
@@ -533,6 +534,97 @@ class DADelay(DaveAction):
             self.delay_timer.start(self.delay)
             print("Delaying " + str(self.delay) + " ms")
 
+## DACopyFolders
+#
+# This action starts a copy of folders.
+#
+import subprocess
+class DACopyFolders(DaveAction):
+
+    ## __init__
+    #
+    def __init__(self):
+        DaveAction.__init__(self)
+    
+    ## abort
+    #
+    # Handle an external abort call
+    #
+    def abort(self):
+        self.completeAction(self.message)
+
+    ## cleanUp
+    #
+    # Handle clean up of the action
+    #
+    def cleanUp(self):
+        pass
+
+    ## createETree
+    #
+    # @param dict A dictionary.
+    #
+    # @return A ElementTree object or None.
+    #
+    def createETree(self, dictionary):
+        source_path = dictionary.get("source_path",None)
+        target_path = dictionary.get("target_path",None)
+        delete_source = dictionary.get("delete_source",False)
+        if source_path is not None and target_path is not None:
+            block = ElementTree.Element(str(type(self).__name__))
+            addField(block, "source_path", source_path)
+            addField(block, "target_path", target_path)
+            addField(block, "delete_source", delete_source)
+            return block
+
+    ## getDescriptor
+    #
+    # @return A string that describes the action.
+    #
+    def getDescriptor(self):
+        return "Copy from  " + str(self.source_path) + " to "+ str(self.target_path)
+
+
+    ## setup
+    #
+    # Perform post creation initialization.
+    #
+    # @param node The node of an ElementTree.
+    #
+    def setup(self, node):
+
+        # Prepare source and target paths and decide wheter to delete the source after
+        self.source_path = node.find("source_path").text
+        self.target_path = node.find("target_path").text
+        self.delete_source = eval(node.find("delete_source").text)
+        
+        # Create message and add delay time for accurate dave time estimates
+        self.message = tcpMessage.TCPMessage(message_type = "Copy",
+                                             message_data = {"source_path": self.source_path,
+                                                             "target_path": self.target_path,
+                                                             "delete_source":self.delete_source});
+        self.message.addResponse("duration", 1000)#assume 1 second for getting the subproccess of copying going
+
+    ## start
+    #
+    # Start the action.
+    #
+    # @param dummy Ignored.
+    # @param test_mode Send the command in test mode.
+    #
+    def start(self, dummy, test_mode):
+        self.message.setTestMode(test_mode)
+
+        if self.message.isTest():
+            self.completeAction(self.message)
+        else:
+            print("Started copying folder " + str(self.source_path) + " to "+ str(self.target_path))
+            cmd = 'python copyFolders_windows.py "'+ str(self.source_path) +'" "'+ str(self.target_path)+'" '+ str(self.delete_source)
+            p = subprocess.Popen(cmd)
+            self.completeAction(self.message)
+
+
+
 ## DAEmail
 #
 # Send an email to user.
@@ -882,6 +974,8 @@ class DASetDirectory(DaveAction):
     #
     def setup(self, node):
         self.directory = node.find("directory").text
+        if not os.path.exists(self.directory):
+            os.makedirs(self.directory)
         self.message = tcpMessage.TCPMessage(message_type = "Set Directory",
                                              message_data = {"directory": self.directory})
 

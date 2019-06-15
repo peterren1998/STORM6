@@ -340,14 +340,14 @@ class ScanMixin(object):
         
         p.add(params.ParameterFloat(description = "Scan step size in microns.",
                                     name = "scan_step",
-                                    value = 0.05))
+                                    value = 1.0))
 
     def handleQPDUpdate(self, qpd_state):
         if hasattr(super(), "handleQPDUpdate"):
             super().handleQPDUpdate(qpd_state)
             
         if (self.behavior == self.sm_mode_name):
-            
+            print("monitoring zscan (qpd_state_sum,sm_min_sum,qpd_state_offset,sm_target):",qpd_state["sum"],self.sm_min_sum,qpd_state["offset"],self.sm_target)
             diff = 2.0 * self.sm_offset_threshold
             if (qpd_state["sum"] > self.sm_min_sum):
                 diff = (qpd_state["offset"] - self.sm_target)
@@ -389,13 +389,15 @@ class ScanMixin(object):
                 self.sm_min_sum = behavior_params["minimum_sum"]
             else:
                 self.sm_min_sum = p.get("minimum_sum")
-
+            
+            print('Tracing the minimum_sum paramater',self.sm_min_sum)
+            #print('Tracing the behavior_params',behavior_params)
+            #print('Tracing the p values: offset_threshold',1.0e-3 * p.get("offset_threshold"),p.get("scan_step"))
             # Set offset threshold.
             if "offset_threshold" in behavior_params:
                 self.sm_offset_threshold = 1.0e-3 * behavior_params["offset_threshold"]
             else:
                 self.sm_offset_threshold = 1.0e-3 * p.get("offset_threshold")
-
             # Set scan range.
             #
             # FIXME: User will specify full range or half range size?
@@ -415,7 +417,7 @@ class ScanMixin(object):
                 self.sm_z_step = behavior_params["scan_step"]
             else:
                 self.sm_z_step = p.get("scan_step")
-
+            
             # Set z starting and ending positions.
             if "z_center" in behavior_params:
                 self.sm_z_end = behavior_params["z_center"] + sm_z_range
@@ -439,7 +441,7 @@ class ScanMixin(object):
 
             # Move z stage to the starting point.
             LockMode.z_stage_functionality.goAbsolute(self.sm_z_start)
-
+            #time.sleep(0.5)# added 4/27/2019 to prevent getting stuck at 0
 
 class LockMode(QtCore.QObject):
     """
