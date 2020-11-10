@@ -48,8 +48,10 @@ def generate(parent, xml_file):
     # Version 2 XML format.
     elif (root_element == "recipe"):
         xml_parser = v2Generator.XMLRecipeParser(xml_filename = xml_file)
+        
         xml_parser.parseXML()
         generated_file = xml_parser.writtenXMLPath()
+        
         is_good = not (generated_file == "")
     if is_good:
         return generated_file

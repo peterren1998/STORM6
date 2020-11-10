@@ -366,7 +366,8 @@ class ScanMixin(object):
                 # If we hit the end of the range and did not find anything then
                 # return to the last z position where we had a good lock and stop.
                 #
-                if (LockMode.z_stage_functionality.getCurrentPosition() >= self.sm_z_end):
+                cur_pos = LockMode.z_stage_functionality.getCurrentPosition()
+                if (cur_pos/self.sm_z_step >= self.sm_z_end/self.sm_z_step):
                     LockMode.z_stage_functionality.goAbsolute(self.last_good_z)
                     self.behaviorDone(False)
 
@@ -432,13 +433,15 @@ class ScanMixin(object):
                 
             if (self.sm_z_start < LockMode.z_stage_functionality.getMinimum()):
                 self.sm_z_start = LockMode.z_stage_functionality.getMinimum()
-                
+            
             # Set target offset.
             if "target" in behavior_params:
                 self.sm_target = behavior_params["target"]
             else:
                 self.sm_target = self.lm_target
-
+            if self.sm_z_step>0: self.sm_z_step*=-1
+            if self.sm_z_step<0:
+                self.sm_z_start,self.sm_z_end = self.sm_z_end*0.95,self.sm_z_start*0.95
             # Move z stage to the starting point.
             LockMode.z_stage_functionality.goAbsolute(self.sm_z_start)
             #time.sleep(0.5)# added 4/27/2019 to prevent getting stuck at 0
