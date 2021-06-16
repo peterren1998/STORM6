@@ -24,6 +24,10 @@ import importlib
 import os
 import signal
 import time
+import sys
+sys.path.append(r"..\..\..\STORM6")
+import storm_control
+
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 

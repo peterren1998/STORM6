@@ -705,7 +705,7 @@ if (__name__ == "__main__"):
 
     from PIL import Image
 
-    loadDLL("c:/windows/system32/uc480_64.dll")
+    loadDLL("C:/Windows/SysWOW64/uc480_64.dll")
 
     cam = Camera(1)
     reps = 1000
