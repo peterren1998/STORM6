@@ -16,7 +16,8 @@ import sys
 import traceback
 import datetime
 import time
-
+import sys
+sys.path.append(r"..\..\..\STORM6")
 # XML parsing
 #from xml.dom import minidom, Node
 

@@ -14,6 +14,8 @@
 import sys
 import os
 import time
+import sys
+sys.path.append(r"..\..\..\STORM6")
 from PyQt5 import QtCore, QtGui, QtWidgets
 from storm_control.fluidics.valves.valveChain import ValveChain
 from storm_control.fluidics.pumps.pumpControl import PumpControl

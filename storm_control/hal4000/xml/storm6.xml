@@ -160,8 +160,8 @@
 		 rising (True) or falling (False) edge of the camera signal
 	-->
 	<timing>
-	  <camera_fire_pin type="string">/Dev1/PFI0</camera_fire_pin>
-	  <counter type="string">/Dev1/ctr0</counter>
+	  <camera_fire_pin type="string">/Dev4/PFI0</camera_fire_pin>
+	  <counter type="string">/Dev4/ctr0</counter>
 	  <rising_edge type="boolean">False</rising_edge>
 	</timing>
 
@@ -171,39 +171,39 @@
 
     <ilm750>
       <do_task>
-        <source type="string">/Dev1/port0/line5</source>
+        <source type="string">/Dev4/port0/line5</source>
       </do_task>
     </ilm750>
 
     <ilm647>
       <do_task>
-        <source type="string">/Dev1/port0/line4</source>
+        <source type="string">/Dev4/port0/line4</source>
       </do_task>      
     </ilm647>
 
 
     <ilm561>
       <do_task>
-        <source type="string">/Dev1/port0/line3</source>
+        <source type="string">/Dev4/port0/line3</source>
       </do_task>
     </ilm561>
 
 
     <ilm488>
       <do_task>
-        <source type="string">/Dev1/port0/line2</source>
+        <source type="string">/Dev4/port0/line2</source>
       </do_task>
     </ilm488>
 
     <ilm405>
       <do_task>
-        <source type="string">/Dev1/port0/line1</source>
+        <source type="string">/Dev4/port0/line1</source>
       </do_task>
     </ilm405>    
     
 	<mcl>
 	  <ao_task>
-	    <source type="string">/Dev1/ao0</source>
+	    <source type="string">/Dev4/ao0</source>
 	  </ao_task>
 	</mcl>
     
@@ -337,7 +337,7 @@
       <class_name type="string">NoneIRLaserModule</class_name>
     </none_irlaser>
     
-         <!-- Ludl stage, COM port: COM6 2021/06/16-->
+    <!-- Ludl stage, COM port: COM6 2021/06/16-->
     <ludl_stage>
       <module_name type="string">storm_control.sc_hardware.ludl.ludlModule</module_name>
       <class_name type="string">LudlStageRS232</class_name>
@@ -347,14 +347,14 @@
       </configuration>
     </ludl_stage>   
 
-      <!-- LUDL Z piezo -->
+    <!-- LUDL Z piezo -->
     <mcl_zstage>
       <module_name type="string">storm_control.sc_hardware.ludl.ludlVoltageZModule</module_name>
       <class_name type="string">LudlVoltageZ</class_name>
 
       <configuration>
 	<parameters>
-	  <center type="float">200.0</center>
+	  <center type="float">150.0</center>
 	  <has_center_bar type="boolean">True</has_center_bar>
 	  <maximum type="float">350.0</maximum>
 	  <minimum type="float">0.0</minimum>
@@ -387,20 +387,21 @@
 	  <offset_minimum type="float">-1.0</offset_minimum>
 	  <offset_warning_high type="float">0.8</offset_warning_high>
 	  <offset_warning_low type="float">-0.8</offset_warning_low>	  
-	  <sum_maximum type="float">200000.0</sum_maximum>
+	  <sum_maximum type="float">150000.0</sum_maximum>
 	  <sum_minimum type="float">0.0</sum_minimum>
-	  <sum_warning_low type="float">50000.0</sum_warning_low>
+	  <sum_warning_low type="float">30000.0</sum_warning_low>
 	</parameters>
 	<background type="int">0</background>
 	<camera_id type="int">1</camera_id>
 	<ini_file type="string">uc480_settings.ini</ini_file>
 	<offset_file type="string">C:\Users\neoSTORM6\Documents\STORM6\storm_control\hal4000\data\cam_offsets_storm6.txt</offset_file>
 	<pixel_clock type="int">25</pixel_clock>
-    <sigma type="float">3.0</sigma>
+    <sigma type="float">4.0</sigma> <!-- changed this sigma from 3.0 to 4.0 to better fit and visualize IR spots -->
 	<uc480_dll type="string">C:\Windows\SysWOW64\uc480_64.dll</uc480_dll>
-	<x_width type="int">300</x_width>
-	<y_width type="int">50</y_width>
-	<units_to_microns type="float">0.01</units_to_microns>
+	<x_width type="int">400</x_width>
+	<y_width type="int">120</y_width>
+	<units_to_microns type="float">-0.025</units_to_microns> <!-- changed to 0.025 according to Aaron's suggestion -->
+  <!-- a minus sign is needed for proper feedback control, this converts lock poition into positive float -->
     <use_storm_analysis type="boolean">True</use_storm_analysis>
       </configuration>
     </uc480_camera>
@@ -425,7 +426,7 @@
 	    <offset_threshold type="float">500.0</offset_threshold>
 	  </locked>
 	  <scan>
-        <minimum_sum type="float">15000</minimum_sum>
+        <minimum_sum type="float">10000</minimum_sum>
         <scan_step type="float">0.2</scan_step>
 	    <offset_threshold type="float">50.0</offset_threshold>
       </scan>
