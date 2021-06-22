@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 """
 Generic Lumencor laser control via HTTP (ethernet connection).
 
@@ -12,9 +12,14 @@ def lumencor_httpcommand(command = 'GET IP',ip = '192.168.201.200'):
     Plese find commands here:
     http://lumencor.com/wp-content/uploads/sites/11/2019/01/57-10018.pdf
     """
+    
     command_full = r'http://'+ip+'/service/?command='+command.replace(' ','%20')
-    with urllib.request.urlopen(command_full) as response:
-        message = eval(response.read()) # the default is conveniently JSON so eval creates dictionary
+    message = {'message':'E'}
+    try:
+        with urllib.request.urlopen(command_full) as response:
+            message = eval(response.read()) # the default is conveniently JSON so eval creates dictionary
+    except:
+        pass
     return message
 
 class LumencorLaser(object):
@@ -110,6 +115,8 @@ class LumencorLaser(object):
         Turn the laser on/off.
         """
         if on:
+            lumencor_httpcommand(command = 'WAKEUP',ip=self.ip)
+            lumencor_httpcommand(command = 'SET TTLENABLE 1',ip=self.ip)
             self.message = lumencor_httpcommand(command = 'SET CH '+self.laser_id+' 1', ip=self.ip)
             self.on = True
         else:
@@ -123,6 +130,7 @@ class LumencorLaser(object):
         print("Setting Power", power_in_mw, self.message)
         if power_in_mw > self.pmax:
             power_in_mw = self.pmax
+        lumencor_httpcommand(command = 'WAKEUP',ip=self.ip)
         self.message = lumencor_httpcommand(command ='SET CHINT '+self.laser_id+' '+ str(int(power_in_mw)), ip=self.ip)
         if self.message['message'][0]=='A':
             return True
@@ -152,7 +160,7 @@ if (__name__ == "__main__"):
         print(obj.getLaserOnOff())
         obj.setLaserOnOff(True)
         obj.setPower(20.0)
-        time.sleep(0.1)
+        time.sleep(5)
         obj.shutDown()
 
 #
