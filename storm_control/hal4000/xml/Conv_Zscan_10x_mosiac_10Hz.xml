@@ -32,7 +32,7 @@
   <!-- illumination settings -->
   <illumination>
   	<default_power type="custom">0.3,0.5,0.3,0.2,0.05</default_power>
-  	<shutters type="string">C:\Users\neoSTORM6\Documents\STORM6\example_scripts\hal\50_steps\shutter_750_647_488_405_s50.xml</shutters>
+  	<shutters type="string">shutter_750_647_488_405_s50.xml</shutters>
     <on_off_state type="custom">False,False,False,False,False</on_off_state>
     <power_buttons type="custom">[[['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.01]]]</power_buttons>
   </illumination>
@@ -42,7 +42,7 @@
     <flip_horizontal type="boolean">True</flip_horizontal>
     <flip_vertical type="boolean">False</flip_vertical>
     <obj1 type="custom">60x,0.108,0.0,0.0</obj1>
-    <obj2 type="custom">10x,0.67,0.0,0.0</obj2>
+    <obj2 type="custom">10x,0.66,0.0,0.0</obj2>
     <objective type="string">obj2</objective>
     <transpose type="boolean">True</transpose>
   </mosaic>

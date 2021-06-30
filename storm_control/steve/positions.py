@@ -263,7 +263,7 @@ class Positions(QtWidgets.QListView):
         elif (which_key == QtCore.Qt.Key_D):
             self.plist_model.movePosition(self.currentIndex(), self.step_size, 0.0)
         else:
-            QtGui.QListView.keyPressEvent(self, event)
+            QtWidgets.QListView.keyPressEvent(self, event)
 
     ## loadFromMosaicFileData
     #

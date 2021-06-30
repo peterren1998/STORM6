@@ -33,9 +33,9 @@ class LudlStageRS232(stageModule.StageModule):
         
         configuration = module_params.get("configuration")
         self.stage = ludl.LudlRS232(port = configuration.get("com_port"))
-
+        ## Stage speed change here:
         if self.stage.getStatus():
-            self.stage.setVelocity(20000,20000)
+            self.stage.setVelocity(200000,200000)
             self.stage_functionality = LudlStageFunctionality(device_mutex = QtCore.QMutex(),
                                                               stage = self.stage,
                                                               update_interval = 500)
