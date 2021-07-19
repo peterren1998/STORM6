@@ -343,7 +343,7 @@
       <class_name type="string">LudlStageRS232</class_name>
       
       <configuration>	
-	<com_port type="string">COM6</com_port> 
+	<com_port type="string">COM7</com_port> 
       </configuration>
     </ludl_stage>   
 

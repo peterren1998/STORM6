@@ -7,6 +7,7 @@ George Emanuel
 import serial
 import string
 import time
+import os
 
 from storm_control.fluidics.valves.valve import AbstractValve
 
@@ -29,13 +30,18 @@ class TitanValve(AbstractValve):
 
     def getPortCount(self):
         self.write('N?')
+        #print(self.read(), string.ascii_letters)
+        #print(self.read())
         return int(self.read().strip(string.ascii_letters))
 
     def updateValveStatus(self):
         self.write('P?')
         response = self.read()
+        print(f"response: {response}")
         if '!' in response:
             self.moving = True
+            if not hasattr(self, 'current_position'):
+                self.current_position = 1 # temporary setting for init
         else:
             self.moving = False 
             self.current_position = int(response.strip(string.ascii_letters))
@@ -78,7 +84,7 @@ class TitanValve(AbstractValve):
         return port_ID < self.port_count
 
     def write(self, message):
-        appendedMessage = message + '\r'
+        appendedMessage = message + os.linesep # change \r into \n because \r only generate null read output
         self.serial.write(appendedMessage.encode())
 
     def read(self):
