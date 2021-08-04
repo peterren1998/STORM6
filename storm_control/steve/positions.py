@@ -10,7 +10,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 import storm_control.steve.coord as coord
-
+import os
 ## PositionItem
 #
 # This class encapsulates a position item.
@@ -290,9 +290,9 @@ class Positions(QtWidgets.QListView):
     def loadPositions(self, filename):
         pos_fp = open(filename, "r")
         while 1:
-            line = pos_fp.readline()
+            line = pos_fp.readline()#.rstrip()
             if not line: break
-            [x, y] = line.split(",")
+            [x, y] = line.rstrip().split(",")
             self.addPosition(coord.Point(float(x), float(y), "um"))
 
     ## saveToMosaicFile
@@ -304,7 +304,7 @@ class Positions(QtWidgets.QListView):
     #
     def saveToMosaicFile(self, file_ptr, filename):
         for position in self.plist_model.getPositionItems():
-            file_ptr.write("position," + position.getText() + "\r\n")
+            file_ptr.write("position," + position.getText() + os.linesep)
 
     ## savePositions
     #
@@ -315,7 +315,7 @@ class Positions(QtWidgets.QListView):
     def savePositions(self, filename):
         fp = open(filename, "w")
         for position_item in self.plist_model.getPositionItems():
-            fp.write(position_item.text + "\r\n")
+            fp.write(position_item.text + os.linesep)
         fp.close()
 
     ## setSceneItemsVisible

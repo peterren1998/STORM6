@@ -250,7 +250,7 @@ class MultifieldView(QtWidgets.QGraphicsView):
             if progress_bar.wasCanceled(): break
             
             name = basename + "_" + str(i+1)
-            fileptr.write("image," + name + ".stv\r\n")
+            fileptr.write("image," + name + ".stv" + os.linesep)
 
             with open(dirname + name + ".stv", "wb") as fp:
                 pickle.dump(item.getState(), fp)

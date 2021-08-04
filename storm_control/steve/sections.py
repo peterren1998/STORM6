@@ -9,6 +9,7 @@
 #
 
 import numpy
+import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 import storm_control.steve.coord as coord
@@ -206,7 +207,7 @@ class Section(QtWidgets.QWidget):
         a_point = self.getLocation()
         angle = self.getAngle()
         [x_um, y_um] = a_point.getUm()
-        filep.write("section," + ",".join(map(str,[number, x_um, y_um, angle])) + "\r\n")
+        filep.write("section," + ",".join(map(str,[number, x_um, y_um, angle])) + os.linesep)
 
     ## select
     #

@@ -21,7 +21,7 @@ class LudlStageFunctionality(stageModule.StageFunctionalityNF):
         second as this seems to be how long it takes for the command to get to 
         the stage and for the stage to settle after the move.
         """
-        time_estimate = math.sqrt(dx*dx + dy*dy)/400.0 + 1.0 #900um ->2 s
+        time_estimate = math.sqrt(dx*dx + dy*dy)/10000.0 + 1.0 #900um ->2 s
         print("> stage move time estimate is {0:.3f} seconds".format(time_estimate))
         return time_estimate
     
@@ -35,7 +35,7 @@ class LudlStageRS232(stageModule.StageModule):
         self.stage = ludl.LudlRS232(port = configuration.get("com_port"))
         ## Stage speed change here:
         if self.stage.getStatus():
-            self.stage.setVelocity(200000,200000)
+            self.stage.setVelocity(50000,50000)
             self.stage_functionality = LudlStageFunctionality(device_mutex = QtCore.QMutex(),
                                                               stage = self.stage,
                                                               update_interval = 500)
@@ -52,7 +52,7 @@ class LudlStageTCP(stageModule.StageModule):
         self.stage = ludl.LudlTCP(ip_address = configuration.get("ip_address"))
 
         if self.stage.getStatus():
-            self.stage.setVelocity(20000,20000)
+            self.stage.setVelocity(50000,50000)
             self.stage_functionality = LudlStageFunctionality(stage = self.stage,
                                                               update_interval = 500)
         else:
