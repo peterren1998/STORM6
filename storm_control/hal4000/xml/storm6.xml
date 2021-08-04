@@ -362,7 +362,7 @@
 	  <warning_low type="float">35.0</warning_low>
 	</parameters>
 	<ao_fn_name type="string">daq.mcl.ao_task</ao_fn_name>
-	<microns_to_volts type="float">0.0286</microns_to_volts>
+	<microns_to_volts type="float">0.0286</microns_to_volts> <!-- Calculated by 10V / 350um -->
       </configuration>
     </mcl_zstage>
 
@@ -400,7 +400,7 @@
 	<uc480_dll type="string">C:\Windows\SysWOW64\uc480_64.dll</uc480_dll>
 	<x_width type="int">400</x_width>
 	<y_width type="int">120</y_width>
-	<units_to_microns type="float">-0.024</units_to_microns> <!-- changed to -0.025 according to Aaron's suggestion -->
+	<units_to_microns type="float">-0.03</units_to_microns> <!-- changed to -0.025 according to Aaron's suggestion -->
   <!-- a minus sign is needed for proper feedback control, this converts lock poition into positive float -->
     <use_storm_analysis type="boolean">True</use_storm_analysis>
       </configuration>
