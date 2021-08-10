@@ -10,7 +10,7 @@
 import numpy
 import sys
 
-from PyQt5 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 import storm_control.sc_library.parameters as parameters
 import storm_control.sc_hardware.holoeye.holoeyeSLM as holoeyeSLM
@@ -133,7 +133,7 @@ class HoloeyeDialog(QtWidgets.QDialog):
     #
     def handleNewImage(self, q_image):
         if q_image is None:
-            QtGui.QMessageBox.information(self,
+            QtWidgets.QMessageBox.information(self,
                                           "Warning!",
                                           "Image type not recognized")
         else:

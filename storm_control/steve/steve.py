@@ -287,7 +287,7 @@ class Window(QtWidgets.QMainWindow):
         # If not, raise an error and abort load
         if not all(sameType):
             hdebug.logText(" Loaded mixed file types")
-            QtGui.QMessageBox.information(self,
+            QtWidgets.QMessageBox.information(self,
                                           "Too many file types",
                                           "")
             return
@@ -300,7 +300,7 @@ class Window(QtWidgets.QMainWindow):
                 self.loadMosaic(filename)
         else:
             hdebug.logText(" " + firstType + " is not recognized")
-            QtGui.QMessageBox.information(self,
+            QtWidgets.QMessageBox.information(self,
                                           "File type not recognized",
                                           "")                    
 
