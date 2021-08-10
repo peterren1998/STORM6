@@ -292,7 +292,11 @@ class Positions(QtWidgets.QListView):
         while 1:
             line = pos_fp.readline()#.rstrip()
             if not line: break
-            [x, y] = line.rstrip().split(",")
+            line = line.rstrip()
+            if not line: # skip empty line
+                continue
+            else:
+                [x, y] = line.split(",")
             self.addPosition(coord.Point(float(x), float(y), "um"))
 
     ## saveToMosaicFile
@@ -304,7 +308,7 @@ class Positions(QtWidgets.QListView):
     #
     def saveToMosaicFile(self, file_ptr, filename):
         for position in self.plist_model.getPositionItems():
-            file_ptr.write("position," + position.getText() + os.linesep)
+            file_ptr.write("position," + position.getText() + "\n")
 
     ## savePositions
     #
@@ -315,8 +319,10 @@ class Positions(QtWidgets.QListView):
     def savePositions(self, filename):
         fp = open(filename, "w")
         for position_item in self.plist_model.getPositionItems():
-            fp.write(position_item.text + os.linesep)
+            fp.write(position_item.text + "\n")
         fp.close()
+    ## BUG FIXED by Pu Zheng, 2021.08.09
+    ##\n is converted to os.linesep for files opened in text-mode. So when you write os.linesep to a text-mode file on Windows, you write \r\n, and the \n gets converted resulting in \r\r\n
 
     ## setSceneItemsVisible
     #

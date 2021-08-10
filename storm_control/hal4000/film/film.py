@@ -504,7 +504,7 @@ class Film(halModule.HalModule):
                     msg = ",".join([str(datetime.datetime.now()),
                                     film_settings.getBasename(),
                                     notes])
-                    msg += os.linesep
+                    msg += "\n"
                     self.logfile_fp.write(msg)
                     self.logfile_fp.flush()
 

@@ -207,7 +207,7 @@ class Section(QtWidgets.QWidget):
         a_point = self.getLocation()
         angle = self.getAngle()
         [x_um, y_um] = a_point.getUm()
-        filep.write("section," + ",".join(map(str,[number, x_um, y_um, angle])) + os.linesep)
+        filep.write("section," + ",".join(map(str,[number, x_um, y_um, angle])) + "\n")
 
     ## select
     #
