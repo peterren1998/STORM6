@@ -32,13 +32,14 @@ class TitanValve(AbstractValve):
     def getPortCount(self):
         self.write('N?')
         #print(self.read(), string.ascii_letters)
-        #print(self.read())
-        return int(self.read().strip(string.ascii_letters))
+        msg = self.read().strip(string.ascii_letters).strip(' ')
+        print('@test', msg)
+        return int(msg)#int(self.read().strip(string.ascii_letters))
 
     def updateValveStatus(self):
         self.write('P?')
         response = self.read()
-        print(f"response: {response}")
+        #print(f"response: {response}")
         if '!' in response:
             self.moving = True
             #if not hasattr(self, 'current_position'):

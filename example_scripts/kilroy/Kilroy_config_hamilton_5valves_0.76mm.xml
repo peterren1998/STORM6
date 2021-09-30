@@ -247,6 +247,10 @@
 
   <kilroy_protocols>
 
+     <protocol name = "Incubate 10min">
+	<pump duration = "600">Stop Flow</pump>
+     </protocol>  
+
      <protocol name = "Flow STORM Buffer">
         <valve duration = "5">STORM Buffer</valve>
         <pump duration = "120">0.50 mL/min</pump>
