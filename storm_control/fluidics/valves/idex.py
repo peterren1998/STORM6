@@ -42,8 +42,8 @@ class TitanValve(AbstractValve):
         #print(f"response: {response}")
         if '!' in response:
             self.moving = True
-            #if not hasattr(self, 'current_position'):
-            #    self.current_position = 1 # temporary setting for init
+            if not hasattr(self, 'current_position'):
+                self.current_position = 1 # temporary setting for init
         else:
             self.moving = False 
             self.current_position = int(response.strip(string.ascii_letters))

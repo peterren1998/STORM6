@@ -173,8 +173,8 @@
     <protocol name = "Flow Imaging Buffer">
       <valve duration = "5">Imaging Buffer</valve>
       <pump duration = "120">0.50 mL/min</pump>
-	    <pump duration = "40">Stop Flow</pump>
-      <pump duration = "20">0.50 mL/min</pump>
+	    <pump duration = "20">Stop Flow</pump>
+      <pump duration = "10">0.50 mL/min</pump>
       <pump duration = "120">Stop Flow</pump>
     </protocol>  
 
@@ -552,9 +552,7 @@
     <protocol name = "Flow Protein Block">
       <valve duration = "5">Protein Block</valve>
       <pump duration = "120">0.50 mL/min</pump>
-      <pump duration = "900">Stop Flow</pump>
-      <pump duration = "10">0.50 mL/min</pump>
-      <pump duration = "900">Stop Flow</pump>
+      <pump duration = "1800">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Flow Protein Wash">
@@ -581,9 +579,7 @@
     <protocol name = "Flow Protein Secondary">
     <valve duration = "5">Protein Secondary</valve>
     <pump duration = "120">0.50 mL/min</pump>
-    <pump duration = "900">Stop Flow</pump>
-    <pump duration = "10">0.50 mL/min</pump>
-    <pump duration = "900">Stop Flow</pump>
+    <pump duration = "3600">Stop Flow</pump>
     </protocol>
 
   </kilroy_protocols>

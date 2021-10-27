@@ -19,7 +19,7 @@
 
   <!-- film settings -->
   <film>
-    <filename type="string">zscan_750_647_488_s50_n250</filename> 
+    <filename type="string">zscan_561_488_405_s50_n250</filename> 
     <acq_mode type="string">fixed_length</acq_mode>
     <frames type="int">150</frames>
     <logfile type="string">D:\Pu\logs\image_log.txt</logfile>
@@ -32,7 +32,7 @@
   <!-- illumination settings -->
   <illumination>
   	<default_power type="custom">0.4,0.2,0.1,0.1,0.02</default_power>
-  	<shutters type="string">shutter_750_647_488_s50.xml</shutters>
+  	<shutters type="string">shutter_561_488_405_s50.xml</shutters>
     <on_off_state type="custom">False,False,False,False,False</on_off_state>
     <power_buttons type="custom">[[['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.01]]]</power_buttons>
   </illumination>
