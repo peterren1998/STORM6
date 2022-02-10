@@ -119,7 +119,7 @@
       <valve_pos valve_ID = "1" port_ID = "27"></valve_pos>
     </valve_cmd>
     <valve_cmd name = "Wash Buffer">
-      <valve_pos valve_ID = "1" port_ID = "28"></valve_pos>
+      <valve_pos valve_ID = "1" port_ID = "34"></valve_pos>
     </valve_cmd>
 
     <valve_cmd name = "Protein Block">
@@ -519,7 +519,7 @@
       <valve duration = "15">Set Hyb 24</valve>
       <valve duration = "15">RNA common readouts</valve>
       <valve duration = "15">TCEP</valve>
-      <valve duration = "120">Wash</valve>
+      <valve duration = "120">Wash Buffer</valve>
       <pump duration = "10">Stop Flow</pump>
     </protocol>
 
@@ -549,16 +549,15 @@
       <valve duration = "15">Set Hyb 22</valve>
       <valve duration = "15">Set Hyb 23</valve>
       <valve duration = "15">Set Hyb 24</valve>
-      <valve duration = "120">Wash</valve>
+      <valve duration = "120">Wash Buffer</valve>
       <pump duration = "10">Stop Flow</pump>
     </protocol>
 
-    <protocol name = "Prime_25-28">
+    <protocol name = "Prime_25-27">
       <pump duration = "1">0.50 mL/min</pump>
       <valve duration = "15">Set Hyb 25</valve>
       <valve duration = "15">Set Hyb 26</valve>
       <valve duration = "15">Set Hyb 27</valve>
-      <valve duration = "15">Set Hyb 28</valve>
       <pump duration = "10">Stop Flow</pump>
     </protocol>
 
