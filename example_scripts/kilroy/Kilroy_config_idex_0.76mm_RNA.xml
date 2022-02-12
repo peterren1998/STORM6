@@ -167,7 +167,9 @@
     <protocol name = "Flow RNA common readouts">
       <valve duration = "5">RNA common readouts</valve>
       <pump duration = "120">0.50 mL/min</pump>
-	    <pump duration = "60">Stop Flow</pump>
+	    <pump duration = "30">Stop Flow</pump>
+      <pump duration = "10">0.50 mL/min</pump>
+	    <pump duration = "30">Stop Flow</pump>
     </protocol>  
 
     <protocol name = "Flow Imaging Buffer">
