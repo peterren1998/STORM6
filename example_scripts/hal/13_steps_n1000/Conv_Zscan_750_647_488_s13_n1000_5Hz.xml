@@ -4,7 +4,7 @@
   <camera1>
 
     <!-- actual Andor features -->
-    <exposure_time type="float">0.2</exposure_time>
+    <exposure_time type="float">0.20</exposure_time>
 
     <!-- view settings -->
     <flip_horizontal type="int">0</flip_horizontal>
@@ -19,7 +19,7 @@
 
   <!-- film settings -->
   <film>
-    <filename type="string">zscan_750_647_561_s13_n1000</filename> 
+    <filename type="string">Zscan_750_647_488_s13_n1000</filename> 
     <acq_mode type="string">fixed_length</acq_mode>
     <frames type="int">39</frames>
     <logfile type="string">D:\Pu\logs\image_log.txt</logfile>
@@ -31,8 +31,8 @@
   
   <!-- illumination settings -->
   <illumination>
-  	<default_power type="custom">0.5,0.2,0.1,0.1,0.03</default_power>
-  	<shutters type="string">shutter_750_647_561_s13.xml</shutters>
+  	<default_power type="custom">0.6,0.35,0.0,0.05,0.0</default_power>
+  	<shutters type="string">shutter_750_647_488_s13.xml</shutters>
     <on_off_state type="custom">False,False,False,False,False</on_off_state>
     <power_buttons type="custom">[[['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.01]]]</power_buttons>
   </illumination>
@@ -40,11 +40,11 @@
   <!-- focus lock settings -->
   <focuslock>
 	<locked>
-      <buffer_length type="int">5</buffer_length>
+      <buffer_length type="int">3</buffer_length>
       <lock_gain type="float">0.1</lock_gain>
       <lock_gain_max type="float">0.1</lock_gain_max>
-      <minimum_sum type="float">-1.0</minimum_sum>
-      <offset_threshold type="float">50.0</offset_threshold>
+      <minimum_sum type="float">0.0</minimum_sum>
+      <offset_threshold type="float">2000.0</offset_threshold>
     </locked>
   	<hardware_z_scan>
 		<z_offsets type="string">0.0,0.0,0.0,1.0,1.0,1.0,2.0,2.0,2.0,3.0,3.0,3.0,4.0,4.0,4.0,5.0,5.0,5.0,6.0,6.0,6.0,7.0,7.0,7.0,8.0,8.0,8.0,9.0,9.0,9.0,10.0,10.0,10.0,11.0,11.0,11.0,12.0,12.0,12.0</z_offsets>
