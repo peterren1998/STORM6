@@ -206,13 +206,6 @@
 	    <source type="string">/Dev4/ao0</source>
 	  </ao_task>
 	</mcl>
-	
-	<ir_laser>
-	  <ct_task>
-	    <source type="string">/Dev4/ctr0</source>
-	    <frequency type="float">50000</frequency>
-	  </ct_task>
-	</ir_laser>
     
       </configuration>
       
@@ -389,33 +382,25 @@
       <module_name type="string">storm_control.sc_hardware.thorlabs.uc480CameraModule</module_name>
       <configuration>
 	<parameters>
-	
 	  <offset_has_center_bar type="boolean">True</offset_has_center_bar>
-	  <offset_maximum type="float">1.500</offset_maximum>
-	  <offset_minimum type="float">0.2</offset_minimum>
-	  
-	  <offset_warning_high type="float">1.45</offset_warning_high>
-	  <offset_warning_low type="float">.25</offset_warning_low>
-	  
+	  <offset_maximum type="float">5000.0</offset_maximum>
+	  <offset_minimum type="float">0.0</offset_minimum>
+	  <offset_warning_high type="float">4500.0</offset_warning_high>
+	  <offset_warning_low type="float">500.0</offset_warning_low>	  
 	  <sum_maximum type="float">240000.0</sum_maximum>
-	  <sum_warning_low type="float">10000.0</sum_warning_low>
 	  <sum_minimum type="float">0.0</sum_minimum>
-	  
-	  
-	  
-	  
+	  <sum_warning_low type="float">60000.0</sum_warning_low>
 	</parameters>
-	<background type="int">32000</background>
+	<background type="int">0</background>
 	<camera_id type="int">1</camera_id>
 	<ini_file type="string">uc480_settings.ini</ini_file>
 	<offset_file type="string">C:\Users\neoSTORM6\Documents\STORM6\storm_control\hal4000\data\cam_offsets_storm6.txt</offset_file>
 	<pixel_clock type="int">25</pixel_clock>
     <sigma type="float">4.0</sigma> <!-- changed this sigma from 3.0 to 4.0 to better fit and visualize IR spots -->
 	<uc480_dll type="string">C:\Windows\SysWOW64\uc480_64.dll</uc480_dll>
-	<x_width type="int">320</x_width>
-	<y_width type="int">80</y_width>
+	<x_width type="int">400</x_width>
+	<y_width type="int">120</y_width>
 	<units_to_microns type="float">-0.03</units_to_microns> <!-- changed to -0.025 according to Aaron's suggestion -->
-
   <!-- a minus sign is needed for proper feedback control, this converts lock poition into positive float -->
     <use_storm_analysis type="boolean">True</use_storm_analysis>
       </configuration>
@@ -426,8 +411,7 @@
       <class_name type="string">FocusLock</class_name>
       <module_name type="string">storm_control.hal4000.focusLock.focusLock</module_name>
       <configuration>
-    <!--<ir_laser type="string">none_irlaser</ir_laser>-->
-	<ir_laser type="string">ldc_irlaser</ir_laser>
+    <ir_laser type="string">none_irlaser</ir_laser>
     <ir_power type="int">10</ir_power>
     <lock_modes type="string">NoLockMode,AutoLockMode,AlwaysOnLockMode,OptimalLockMode,CalibrationLockMode,HardwareZScanLockMode</lock_modes>
     <qpd type="string">uc480_camera</qpd>
@@ -461,20 +445,6 @@
       </configuration>
     </tcp_control>
     
-	
-	<!-- Thorlabs LDC control -->
-    <ldc_irlaser>
-      <module_name type="string">storm_control.sc_hardware.thorlabs.LDCModule</module_name>
-      <class_name type="string">LDCIRLaserModule</class_name>
-
-      <configuration>
-	<ct_fn_name type="string">daq.ir_laser.ct_task</ct_fn_name>
-      </configuration>
-    </ldc_irlaser>
-	
-	
-
-	
   </modules>
   
 </config>

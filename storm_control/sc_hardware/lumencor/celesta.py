@@ -116,7 +116,7 @@ class LumencorLaser(object):
         """
         if on:
             lumencor_httpcommand(command = 'WAKEUP',ip=self.ip)
-            lumencor_httpcommand(command = 'SET TTLENABLE 1',ip=self.ip)
+            #lumencor_httpcommand(command = 'SET TTLENABLE 1',ip=self.ip)
             self.message = lumencor_httpcommand(command = 'SET CH '+self.laser_id+' 1', ip=self.ip)
             self.on = True
         else:
@@ -131,6 +131,7 @@ class LumencorLaser(object):
         if power_in_mw > self.pmax:
             power_in_mw = self.pmax
         lumencor_httpcommand(command = 'WAKEUP',ip=self.ip)
+        #lumencor_httpcommand(command = 'SET TTLENABLE 1',ip=self.ip)
         self.message = lumencor_httpcommand(command ='SET CHINT '+self.laser_id+' '+ str(int(power_in_mw)), ip=self.ip)
         if self.message['message'][0]=='A':
             return True
@@ -160,7 +161,7 @@ if (__name__ == "__main__"):
         print(obj.getLaserOnOff())
         obj.setLaserOnOff(True)
         obj.setPower(20.0)
-        time.sleep(5)
+        time.sleep(3)
         obj.shutDown()
 
 #

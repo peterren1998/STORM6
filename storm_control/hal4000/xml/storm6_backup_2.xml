@@ -206,13 +206,6 @@
 	    <source type="string">/Dev4/ao0</source>
 	  </ao_task>
 	</mcl>
-	
-	<ir_laser>
-	  <ct_task>
-	    <source type="string">/Dev4/ctr0</source>
-	    <frequency type="float">50000</frequency>
-	  </ct_task>
-	</ir_laser>
     
       </configuration>
       
@@ -426,8 +419,7 @@
       <class_name type="string">FocusLock</class_name>
       <module_name type="string">storm_control.hal4000.focusLock.focusLock</module_name>
       <configuration>
-    <!--<ir_laser type="string">none_irlaser</ir_laser>-->
-	<ir_laser type="string">ldc_irlaser</ir_laser>
+    <ir_laser type="string">none_irlaser</ir_laser>
     <ir_power type="int">10</ir_power>
     <lock_modes type="string">NoLockMode,AutoLockMode,AlwaysOnLockMode,OptimalLockMode,CalibrationLockMode,HardwareZScanLockMode</lock_modes>
     <qpd type="string">uc480_camera</qpd>
@@ -461,16 +453,6 @@
       </configuration>
     </tcp_control>
     
-	
-	<!-- Thorlabs LDC control -->
-    <ldc_irlaser>
-      <module_name type="string">storm_control.sc_hardware.thorlabs.LDCModule</module_name>
-      <class_name type="string">LDCIRLaserModule</class_name>
-
-      <configuration>
-	<ct_fn_name type="string">daq.ir_laser.ct_task</ct_fn_name>
-      </configuration>
-    </ldc_irlaser>
 	
 	
 
