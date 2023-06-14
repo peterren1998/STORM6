@@ -138,16 +138,16 @@
 
   <pump_commands>
     <pump_cmd name = "0.25 mL/min">
-      <pump_config speed = "6.00" direction = "Forward"></pump_config>
+      <pump_config speed = "5.8" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "0.50 mL/min">
-      <pump_config speed = "12.00" direction = "Forward"></pump_config>
+      <pump_config speed = "11.60" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "1.00 mL/min">
-      <pump_config speed = "24.00" direction = "Forward"></pump_config>
+      <pump_config speed = "23.20" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Reverse 0.50 mL/min">
-      <pump_config speed = "12.00" direction = "Reverse"></pump_config>
+      <pump_config speed = "11.60" direction = "Reverse"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Stop Flow">
       <pump_config speed = "0.0"></pump_config>
@@ -158,12 +158,20 @@
 
   <kilroy_protocols>
 
+    <protocol name = "Incubate 5min">
+	    <pump duration = "300">Stop Flow</pump>
+    </protocol>
+
     <protocol name = "Incubate 10min">
 	    <pump duration = "600">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Incubate 15min">
 	    <pump duration = "900">Stop Flow</pump>
+    </protocol>
+
+    <protocol name = "Incubate 30min">
+	    <pump duration = "1800">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Incubate 1hour">
@@ -185,7 +193,7 @@
       <pump duration = "30">0.25 mL/min</pump>
       <pump duration = "60">Stop Flow</pump>
       <pump duration = "30">0.25 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
+      <pump duration = "100">Stop Flow</pump>
     </protocol>  
 
     <protocol name = "Flow Wash Buffer">
@@ -694,36 +702,50 @@
     <protocol name = "Flow Protein Block">
       <valve duration = "5">Protein Block</valve>
       <pump duration = "120">0.50 mL/min</pump>
-      <pump duration = "3600">Stop Flow</pump>
+      <pump duration = "1800">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Flow Protein Wash">
       <valve duration = "5">Protein Wash</valve>
       <pump duration = "120">0.50 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
-      <pump duration = "30">0.50 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
-      <pump duration = "30">0.50 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
-      <pump duration = "30">0.50 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
+      <pump duration = "180">Stop Flow</pump>
+      <pump duration = "120">0.50 mL/min</pump>
+      <pump duration = "180">Stop Flow</pump>
+      <pump duration = "120">0.50 mL/min</pump>
+      <pump duration = "180">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Flow Protein Primary">
     <valve duration = "5">Protein Primary</valve>
-    <pump duration = "60">0.50 mL/min</pump>
+    <pump duration = "120">0.50 mL/min</pump>
     <pump duration = "30">Stop Flow</pump>
     <valve duration = "5">Protein Block</valve>
-    <pump duration = "60">0.50 mL/min</pump>
-    <pump duration = "30">Stop Flow</pump>
-    <valve duration = "5">Protein Primary</valve>
-    <pump duration = "3600">Stop Flow</pump>
+    <pump duration = "30">0.25 mL/min</pump>
+    <pump duration = "10800">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Flow Protein Secondary">
     <valve duration = "5">Protein Secondary</valve>
-    <pump duration = "120">0.50 mL/min</pump>
-    <pump duration = "3600">Stop Flow</pump>
+    <pump duration = "150">0.50 mL/min</pump>
+    <pump duration = "2100">Stop Flow</pump>
+    </protocol>
+
+    <protocol name = "Clean Protein Valves">
+    <valve duration = "5">Protein Block</valve>
+    <pump duration = "150">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <pump duration = "30">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <valve duration = "5">Protein Primary</valve>
+    <pump duration = "150">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <pump duration = "30">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <valve duration = "5">Protein Secondary</valve>
+    <pump duration = "150">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <pump duration = "30">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
     </protocol>
 
 

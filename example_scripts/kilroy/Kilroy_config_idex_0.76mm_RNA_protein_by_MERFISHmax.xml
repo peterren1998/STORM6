@@ -105,7 +105,7 @@
       <valve_pos valve_ID = "1" port_ID = "34"></valve_pos>
     </valve_cmd>
 
-    <valve_cmd name = "RNA common readouts">
+    <valve_cmd name = "Common Readouts">
       <valve_pos valve_ID = "1" port_ID = "25"></valve_pos>
     </valve_cmd>
     <valve_cmd name = "TCEP">
@@ -138,16 +138,16 @@
 
   <pump_commands>
     <pump_cmd name = "0.25 mL/min">
-      <pump_config speed = "6.00" direction = "Forward"></pump_config>
+      <pump_config speed = "5.0" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "0.50 mL/min">
-      <pump_config speed = "12.00" direction = "Forward"></pump_config>
+      <pump_config speed = "10.0" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "1.00 mL/min">
-      <pump_config speed = "24.00" direction = "Forward"></pump_config>
+      <pump_config speed = "20.0" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Reverse 0.50 mL/min">
-      <pump_config speed = "12.00" direction = "Reverse"></pump_config>
+      <pump_config speed = "10.0" direction = "Reverse"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Stop Flow">
       <pump_config speed = "0.0"></pump_config>
@@ -158,6 +158,10 @@
 
   <kilroy_protocols>
 
+    <protocol name = "Incubate 5min">
+	    <pump duration = "300">Stop Flow</pump>
+    </protocol>
+
     <protocol name = "Incubate 10min">
 	    <pump duration = "600">Stop Flow</pump>
     </protocol>
@@ -166,12 +170,16 @@
 	    <pump duration = "900">Stop Flow</pump>
     </protocol>
 
+    <protocol name = "Incubate 30min">
+	    <pump duration = "1800">Stop Flow</pump>
+    </protocol>
+
     <protocol name = "Incubate 1hour">
 	    <pump duration = "3600">Stop Flow</pump>
     </protocol>
 
-    <protocol name = "Flow RNA common readouts">
-      <valve duration = "5">RNA common readouts</valve>
+    <protocol name = "Flow Common Readouts">
+      <valve duration = "5">Common Readouts</valve>
       <pump duration = "120">0.50 mL/min</pump>
 	    <pump duration = "30">Stop Flow</pump>
       <pump duration = "20">0.25 mL/min</pump>
@@ -185,7 +193,7 @@
       <pump duration = "30">0.25 mL/min</pump>
       <pump duration = "60">Stop Flow</pump>
       <pump duration = "30">0.25 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
+      <pump duration = "100">Stop Flow</pump>
     </protocol>  
 
     <protocol name = "Flow Wash Buffer">
@@ -206,12 +214,22 @@
       <pump duration = "300">Stop Flow</pump>
     </protocol> 
 
+    <protocol name = "Flow Harsh Wash">
+      <valve duration = "5">TCEP</valve>
+      <pump duration = "120">0.50 mL/min</pump>
+      <pump duration = "210">Stop Flow</pump>
+      <pump duration = "20">0.25 mL/min</pump>
+      <pump duration = "210">Stop Flow</pump>
+    </protocol> 
+
     <protocol name = "Flow 2xSSC">
       <valve duration = "5">2xSSC</valve>
       <pump duration = "120">0.50 mL/min</pump>
-	    <pump duration = "60">Stop Flow</pump>
-      <pump duration = "20">0.25 mL/min</pump>
-	    <pump duration = "60">Stop Flow</pump>
+	    <pump duration = "40">Stop Flow</pump>
+      <pump duration = "20">0.50 mL/min</pump>
+	    <pump duration = "40">Stop Flow</pump>
+      <pump duration = "20">0.50 mL/min</pump>
+	    <pump duration = "40">Stop Flow</pump>
     </protocol> 
 
     <protocol name = "Hybridize 1">
@@ -487,156 +505,393 @@
     </protocol>
 
     <protocol name = "Cleanup_all">
-      <pump duration = "1">1.00 mL/min</pump>
-      <valve duration = "60">Set Hyb 1</valve>
-      <valve duration = "60">Set Hyb 2</valve>
-      <valve duration = "60">Set Hyb 3</valve>
-      <valve duration = "60">Set Hyb 4</valve>
-      <valve duration = "60">Set Hyb 5</valve>
-      <valve duration = "60">Set Hyb 6</valve>
-      <valve duration = "60">Set Hyb 7</valve>
-      <valve duration = "60">Set Hyb 8</valve>
-      <valve duration = "60">Set Hyb 9</valve>
-      <valve duration = "60">Set Hyb 10</valve>
-      <valve duration = "60">Set Hyb 11</valve>
-      <valve duration = "60">Set Hyb 12</valve>
-      <valve duration = "60">Set Hyb 13</valve>
-      <valve duration = "60">Set Hyb 14</valve>
-      <valve duration = "60">Set Hyb 15</valve>
-      <valve duration = "60">Set Hyb 16</valve>
-      <valve duration = "60">Set Hyb 17</valve>
-      <valve duration = "60">Set Hyb 18</valve>
-      <valve duration = "60">Set Hyb 19</valve>
-      <valve duration = "60">Set Hyb 20</valve>
-      <valve duration = "60">Set Hyb 21</valve>
-      <valve duration = "60">Set Hyb 22</valve>
-      <valve duration = "60">Set Hyb 23</valve>
-      <valve duration = "60">Set Hyb 24</valve>
-      <valve duration = "60">Set Hyb 25</valve>
-      <valve duration = "60">Set Hyb 26</valve>
-      <valve duration = "60">Set Hyb 27</valve>
-      <valve duration = "60">Set Hyb 28</valve>
-      <valve duration = "60">Set Hyb 29</valve>
-      <valve duration = "60">Set Hyb 30</valve>
-      <valve duration = "60">Set Hyb 31</valve>
-      <valve duration = "60">Set Hyb 32</valve>
-      <valve duration = "60">Set Hyb 33</valve>
-      <valve duration = "60">Set Hyb 34</valve>
-      <pump duration = "10">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 1</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 2</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 3</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 4</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 5</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 6</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 7</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 8</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 9</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 10</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 11</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 12</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 13</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 14</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 15</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 16</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 17</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 18</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 19</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 20</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 21</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 22</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 23</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 24</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 25</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 26</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 27</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 28</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 29</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 30</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 31</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 32</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 33</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 34</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+
     </protocol>
 
     <protocol name = "Cleanup_1-24">
-      <pump duration = "1">1.00 mL/min</pump>
-      <valve duration = "30">Set Hyb 1</valve>
-      <valve duration = "30">Set Hyb 2</valve>
-      <valve duration = "30">Set Hyb 3</valve>
-      <valve duration = "30">Set Hyb 4</valve>
-      <valve duration = "30">Set Hyb 5</valve>
-      <valve duration = "30">Set Hyb 6</valve>
-      <valve duration = "30">Set Hyb 7</valve>
-      <valve duration = "30">Set Hyb 8</valve>
-      <valve duration = "30">Set Hyb 9</valve>
-      <valve duration = "30">Set Hyb 10</valve>
-      <valve duration = "30">Set Hyb 11</valve>
-      <valve duration = "30">Set Hyb 12</valve>
-      <valve duration = "30">Set Hyb 13</valve>
-      <valve duration = "30">Set Hyb 14</valve>
-      <valve duration = "30">Set Hyb 15</valve>
-      <valve duration = "30">Set Hyb 16</valve>
-      <valve duration = "30">Set Hyb 17</valve>
-      <valve duration = "30">Set Hyb 18</valve>
-      <valve duration = "30">Set Hyb 19</valve>
-      <valve duration = "30">Set Hyb 20</valve>
-      <valve duration = "30">Set Hyb 21</valve>
-      <valve duration = "30">Set Hyb 22</valve>
-      <valve duration = "30">Set Hyb 23</valve>
-      <valve duration = "30">Set Hyb 24</valve>
-      <pump duration = "10">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 1</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 2</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 3</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 4</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 5</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 6</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 7</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 8</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 9</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 10</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 11</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 12</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 13</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 14</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 15</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 16</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 17</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 18</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 19</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 20</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 21</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 22</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 23</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 24</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+
     </protocol>
 
     <protocol name = "Cleanup_25-34">
-      <pump duration = "1">1.00 mL/min</pump>
-      <valve duration = "30">Set Hyb 25</valve>
-      <valve duration = "30">Set Hyb 26</valve>
-      <valve duration = "30">Set Hyb 27</valve>
-      <valve duration = "30">Set Hyb 28</valve>
-      <valve duration = "30">Set Hyb 29</valve>
-      <valve duration = "30">Set Hyb 30</valve>
-      <valve duration = "30">Set Hyb 31</valve>
-      <valve duration = "30">Set Hyb 32</valve>
-      <valve duration = "30">Set Hyb 33</valve>
-      <valve duration = "30">Set Hyb 34</valve>
-      <pump duration = "10">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 25</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 26</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 27</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 28</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 29</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 30</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 31</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 32</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 33</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 34</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Prime_all">
-      <pump duration = "1">0.50 mL/min</pump>
-      <valve duration = "15">Set Hyb 1</valve>
-      <valve duration = "15">Set Hyb 2</valve>
-      <valve duration = "15">Set Hyb 3</valve>
-      <valve duration = "15">Set Hyb 4</valve>
-      <valve duration = "15">Set Hyb 5</valve>
-      <valve duration = "15">Set Hyb 6</valve>
-      <valve duration = "15">Set Hyb 7</valve>
-      <valve duration = "15">Set Hyb 8</valve>
-      <valve duration = "15">Set Hyb 9</valve>
-      <valve duration = "15">Set Hyb 10</valve>
-      <valve duration = "15">Set Hyb 11</valve>
-      <valve duration = "15">Set Hyb 12</valve>
-      <valve duration = "15">Set Hyb 13</valve>
-      <valve duration = "15">Set Hyb 14</valve>
-      <valve duration = "15">Set Hyb 15</valve>
-      <valve duration = "15">Set Hyb 16</valve>
-      <valve duration = "15">Set Hyb 17</valve>
-      <valve duration = "15">Set Hyb 18</valve>
-      <valve duration = "15">Set Hyb 19</valve>
-      <valve duration = "15">Set Hyb 20</valve>
-      <valve duration = "15">Set Hyb 21</valve>
-      <valve duration = "15">Set Hyb 22</valve>
-      <valve duration = "15">Set Hyb 23</valve>
-      <valve duration = "15">Set Hyb 24</valve>
-      <valve duration = "15">RNA common readouts</valve>
-      <valve duration = "15">TCEP</valve>
-      <valve duration = "120">Wash Buffer</valve>
-      <pump duration = "10">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 1</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 2</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 3</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 4</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 5</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 6</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 7</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 8</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 9</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 10</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 11</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 12</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 13</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 14</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 15</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 16</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 17</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 18</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 19</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 20</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 21</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 22</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 23</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 24</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Common Readouts</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">TCEP</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Wash Buffer</valve>
+      <pump duration = "120">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Prime_1-24">
-      <pump duration = "1">0.50 mL/min</pump>
-      <valve duration = "15">Set Hyb 1</valve>
-      <valve duration = "15">Set Hyb 2</valve>
-      <valve duration = "15">Set Hyb 3</valve>
-      <valve duration = "15">Set Hyb 4</valve>
-      <valve duration = "15">Set Hyb 5</valve>
-      <valve duration = "15">Set Hyb 6</valve>
-      <valve duration = "15">Set Hyb 7</valve>
-      <valve duration = "15">Set Hyb 8</valve>
-      <valve duration = "15">Set Hyb 9</valve>
-      <valve duration = "15">Set Hyb 10</valve>
-      <valve duration = "15">Set Hyb 11</valve>
-      <valve duration = "15">Set Hyb 12</valve>
-      <valve duration = "15">Set Hyb 13</valve>
-      <valve duration = "15">Set Hyb 14</valve>
-      <valve duration = "15">Set Hyb 15</valve>
-      <valve duration = "15">Set Hyb 16</valve>
-      <valve duration = "15">Set Hyb 17</valve>
-      <valve duration = "15">Set Hyb 18</valve>
-      <valve duration = "15">Set Hyb 19</valve>
-      <valve duration = "15">Set Hyb 20</valve>
-      <valve duration = "15">Set Hyb 21</valve>
-      <valve duration = "15">Set Hyb 22</valve>
-      <valve duration = "15">Set Hyb 23</valve>
-      <valve duration = "15">Set Hyb 24</valve>
-      <valve duration = "120">Wash Buffer</valve>
-      <pump duration = "10">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 1</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 2</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 3</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 4</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 5</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 6</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 7</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 8</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 9</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 10</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 11</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 12</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 13</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 14</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 15</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 16</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 17</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 18</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 19</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 20</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 21</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 22</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 23</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 24</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Wash Buffer</valve>
+      <pump duration = "120">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Prime_25-27">
-      <pump duration = "1">0.50 mL/min</pump>
-      <valve duration = "15">Set Hyb 25</valve>
-      <valve duration = "15">Set Hyb 26</valve>
-      <valve duration = "15">Set Hyb 27</valve>
-      <pump duration = "10">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 25</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 26</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 27</valve>
+      <pump duration = "15">0.50 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+
     </protocol>
 
     <protocol name = "Prime_29-32">
@@ -694,36 +949,50 @@
     <protocol name = "Flow Protein Block">
       <valve duration = "5">Protein Block</valve>
       <pump duration = "120">0.50 mL/min</pump>
-      <pump duration = "3600">Stop Flow</pump>
+      <pump duration = "1800">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Flow Protein Wash">
       <valve duration = "5">Protein Wash</valve>
       <pump duration = "120">0.50 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
-      <pump duration = "30">0.50 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
-      <pump duration = "30">0.50 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
-      <pump duration = "30">0.50 mL/min</pump>
-      <pump duration = "120">Stop Flow</pump>
+      <pump duration = "180">Stop Flow</pump>
+      <pump duration = "120">0.50 mL/min</pump>
+      <pump duration = "180">Stop Flow</pump>
+      <pump duration = "120">0.50 mL/min</pump>
+      <pump duration = "180">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Flow Protein Primary">
     <valve duration = "5">Protein Primary</valve>
-    <pump duration = "60">0.50 mL/min</pump>
+    <pump duration = "120">0.50 mL/min</pump>
     <pump duration = "30">Stop Flow</pump>
     <valve duration = "5">Protein Block</valve>
-    <pump duration = "60">0.50 mL/min</pump>
-    <pump duration = "30">Stop Flow</pump>
-    <valve duration = "5">Protein Primary</valve>
-    <pump duration = "3600">Stop Flow</pump>
+    <pump duration = "30">0.25 mL/min</pump>
+    <pump duration = "10800">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Flow Protein Secondary">
     <valve duration = "5">Protein Secondary</valve>
-    <pump duration = "120">0.50 mL/min</pump>
-    <pump duration = "3600">Stop Flow</pump>
+    <pump duration = "150">0.50 mL/min</pump>
+    <pump duration = "2100">Stop Flow</pump>
+    </protocol>
+
+    <protocol name = "Clean Protein Valves">
+    <valve duration = "5">Protein Block</valve>
+    <pump duration = "150">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <pump duration = "30">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <valve duration = "5">Protein Primary</valve>
+    <pump duration = "150">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <pump duration = "30">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <valve duration = "5">Protein Secondary</valve>
+    <pump duration = "150">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
+    <pump duration = "30">0.50 mL/min</pump>
+    <pump duration = "20">Stop Flow</pump>
     </protocol>
 
 

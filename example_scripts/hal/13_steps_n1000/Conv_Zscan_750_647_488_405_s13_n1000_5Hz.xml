@@ -31,7 +31,7 @@
   
   <!-- illumination settings -->
   <illumination>
-  	<default_power type="custom">0.6,0.35,0.0,0.1,0.04</default_power>
+  	<default_power type="custom">0.4,0.3,0.0,0.03,0.04</default_power>
   	<shutters type="string">shutter_750_647_488_405_s13.xml</shutters>
     <on_off_state type="custom">False,False,False,False,False</on_off_state>
     <power_buttons type="custom">[[['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.01]]]</power_buttons>
@@ -40,7 +40,7 @@
   <!-- focus lock settings -->
   <focuslock>
 	<locked>
-      <buffer_length type="int">3</buffer_length>
+      <buffer_length type="int">4</buffer_length>
       <lock_gain type="float">0.1</lock_gain>
       <lock_gain_max type="float">0.1</lock_gain_max>
       <minimum_sum type="float">-1.0</minimum_sum>
