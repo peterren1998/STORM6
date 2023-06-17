@@ -13,7 +13,7 @@ from storm_control.fluidics.valves.valve import AbstractValve
 
 class TitanValve(AbstractValve):
     
-    def __init__(self, com_port=2, verbose= False):
+    def __init__(self, com_port=3, verbose= False):
 
         self.com_port = com_port
         self.verbose = verbose
@@ -21,7 +21,7 @@ class TitanValve(AbstractValve):
 
         self.serial = serial.Serial(port = self.com_port, 
                 baudrate = 9600,
-                timeout=0.5)
+                timeout=1.0) # 0.5
         #give the arduino time to initialize
         time.sleep(2)
         self.port_count = self.getPortCount()
@@ -46,7 +46,14 @@ class TitanValve(AbstractValve):
                 self.current_position = 1 # temporary setting for init
         else:
             self.moving = False 
-            self.current_position = int(response.strip(string.ascii_letters))
+            try:
+                self.current_position = int(response.strip(string.ascii_letters))
+            except:
+                # do it again:
+                time.sleep(0.75) # pause 1s
+                self.write('P?') # query again
+                response = self.read()
+                self.current_position = int(response.strip(string.ascii_letters))
 
         return self.current_position, self.moving
 

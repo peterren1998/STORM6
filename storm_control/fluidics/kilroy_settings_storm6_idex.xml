@@ -2,7 +2,7 @@
 <settings><!-- Default kilroy settings -->
   <!-- Valve parameters -->
   <valve_type type="string">Titan</valve_type><!-- Control class for valve -->
-  <valves_com_port type="string">COM8</valves_com_port>	<!-- COM port of serial connection to valves -->  
+  <valves_com_port type="string">COM3</valves_com_port>	<!-- COM port of serial connection to valves -->  
   <num_simulated_valves type="int">3</num_simulated_valves><!-- Number of valves to simulate (Defaults to 0) -->
 
   <!-- Pump parameters -->
