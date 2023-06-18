@@ -24,11 +24,11 @@ bool sendValveCommand(byte address, byte command, byte value) {
   while (success != 0 && attempts < 50) {
     //Wire.beginTransmission(address);
     Wire.beginTransmission(address >> 1);
+    delay(2);
     Wire.write(command);
     Wire.write(value);
     Wire.write(address ^ command ^ value);
     success = Wire.endTransmission(); //return 0 if success
-    //delay(200);
     attempts++;
   }
 
@@ -92,7 +92,7 @@ int getValveStatus(byte address) {
 }
 
 void searchValveAddress(int start) {
-  for (int addr = start; addr < 128; addr++) {
+  for (int addr = start; addr < 36; addr++) {
       Serial.print(addr,HEX);
       Serial.print(" ");
       Serial.print(getValveStatus(addr));
@@ -146,13 +146,18 @@ void processPositionRequest() {
   int status1 = getValveStatus(VALVE_ADDRESS_1);
   int status2 = getValveStatus(VALVE_ADDRESS_2);
   int status3 = getValveStatus(VALVE_ADDRESS_3);
-  //Serial.print("status: ");
-  //Serial.print(status1);
-  //Serial.print(" ");
-  //Serial.print(status2);
-  //Serial.print(" ");
-  //Serial.print(status3);
-  //Serial.print(" ");
+  //plot status if debugging:
+  byte outputStatus = 0;
+  if (outputStatus) {
+      Serial.print("status: ");
+      Serial.print(status1);
+      Serial.print(" ");
+      Serial.print(status2);
+      Serial.print(" ");
+      Serial.print(status3);
+      Serial.println(" ");
+  }
+  
   if (!isErrorStatus(status1) && !isErrorStatus(status2) &&
       !isErrorStatus(status3)) {
     if (status1 != 12) {

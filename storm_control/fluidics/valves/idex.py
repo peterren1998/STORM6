@@ -37,6 +37,7 @@ class TitanValve(AbstractValve):
         return int(msg)#int(self.read().strip(string.ascii_letters))
 
     def updateValveStatus(self):
+        time.sleep(0.1) # pause 1s
         self.write('P?')
         response = self.read()
         #print(f"response: {response}")
@@ -50,10 +51,12 @@ class TitanValve(AbstractValve):
                 self.current_position = int(response.strip(string.ascii_letters))
             except:
                 # do it again:
-                time.sleep(0.75) # pause 1s
+                print(response)
+                time.sleep(1) # pause 1s
                 self.write('P?') # query again
-                response = self.read()
-                self.current_position = int(response.strip(string.ascii_letters))
+                new_response = self.read()
+                # keep the same format to still report error message if applicable
+                self.current_position = int(new_response.strip(string.ascii_letters)) 
 
         return self.current_position, self.moving
 
@@ -66,9 +69,11 @@ class TitanValve(AbstractValve):
             return False
 
         self.write('P ' + str(port_ID+1))
+        time.sleep(1.5) # pause 1.5s, because valves need some time to properly go to next position. 
 
     def howManyValves(self):
-        return 1
+        # Arduino organize valves into 1
+        return 1 
 
     def close(self):
         self.serial.close()
