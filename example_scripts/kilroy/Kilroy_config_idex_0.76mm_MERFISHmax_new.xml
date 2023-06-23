@@ -89,6 +89,9 @@
     <valve_cmd name = "Set Hyb 29">
       <valve_pos valve_ID = "1" port_ID = "29"></valve_pos>
     </valve_cmd>
+    <valve_cmd name = "Set Hyb 30">
+      <valve_pos valve_ID = "1" port_ID = "30"></valve_pos>
+    </valve_cmd>
 
     <valve_cmd name = "Common Readouts">
       <valve_pos valve_ID = "1" port_ID = "25"></valve_pos>
@@ -110,16 +113,16 @@
 
   <pump_commands>
     <pump_cmd name = "0.25 mL/min">
-      <pump_config speed = "5.0" direction = "Forward"></pump_config>
+      <pump_config speed = "6.0" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "0.50 mL/min">
-      <pump_config speed = "10.0" direction = "Forward"></pump_config>
+      <pump_config speed = "12.0" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "1.00 mL/min">
-      <pump_config speed = "20.0" direction = "Forward"></pump_config>
+      <pump_config speed = "24.0" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Reverse 0.50 mL/min">
-      <pump_config speed = "10.0" direction = "Reverse"></pump_config>
+      <pump_config speed = "12.0" direction = "Reverse"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Stop Flow">
       <pump_config speed = "0.0"></pump_config>
@@ -436,6 +439,13 @@
       <pump duration = "10">Stop Flow</pump>
     </protocol>
 
+    <protocol name = "Hybridize 30">
+      <valve duration = "5">Set Hyb 30</valve>
+      <pump duration = "120">0.50 mL/min</pump>
+	    <pump duration = "10">Stop Flow</pump>
+      <pump duration = "10">0.25 mL/min</pump>
+      <pump duration = "10">Stop Flow</pump>
+    </protocol>
 
     <protocol name = "Cleanup_all">
       <valve duration = "3">Set Hyb 1</valve>
