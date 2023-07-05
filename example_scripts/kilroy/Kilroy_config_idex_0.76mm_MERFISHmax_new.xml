@@ -113,16 +113,16 @@
 
   <pump_commands>
     <pump_cmd name = "0.25 mL/min">
-      <pump_config speed = "6.0" direction = "Forward"></pump_config>
+      <pump_config speed = "5.5" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "0.50 mL/min">
-      <pump_config speed = "12.0" direction = "Forward"></pump_config>
+      <pump_config speed = "11.0" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "1.00 mL/min">
-      <pump_config speed = "24.0" direction = "Forward"></pump_config>
+      <pump_config speed = "22.0" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Reverse 0.50 mL/min">
-      <pump_config speed = "12.0" direction = "Reverse"></pump_config>
+      <pump_config speed = "11.0" direction = "Reverse"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Stop Flow">
       <pump_config speed = "0.0"></pump_config>
@@ -535,7 +535,9 @@
       <valve duration = "3">Set Hyb 29</valve>
       <pump duration = "30">1.00 mL/min</pump>
       <pump duration = "3">Stop Flow</pump>
-
+      <valve duration = "3">Set Hyb 30</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
     </protocol>
 
     <protocol name = "Cleanup_1-24">
@@ -614,7 +616,7 @@
 
     </protocol>
 
-    <protocol name = "Cleanup_25-29">
+    <protocol name = "Cleanup_25-30">
       <valve duration = "3">Set Hyb 25</valve>
       <pump duration = "30">1.00 mL/min</pump>
       <pump duration = "3">Stop Flow</pump>
@@ -628,6 +630,9 @@
       <pump duration = "30">1.00 mL/min</pump>
       <pump duration = "3">Stop Flow</pump>
       <valve duration = "3">Set Hyb 29</valve>
+      <pump duration = "30">1.00 mL/min</pump>
+      <pump duration = "3">Stop Flow</pump>
+      <valve duration = "3">Set Hyb 30</valve>
       <pump duration = "30">1.00 mL/min</pump>
       <pump duration = "3">Stop Flow</pump>
     </protocol>
