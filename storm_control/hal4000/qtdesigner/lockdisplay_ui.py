@@ -12,6 +12,7 @@ class Ui_GroupBox(object):
     def setupUi(self, GroupBox):
         GroupBox.setObjectName("GroupBox")
         GroupBox.resize(310, 282)
+        # GroupBox.resize(1210, 1022)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(GroupBox)
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<repeat>
+  <oversampling>1</oversampling>
+  <frames>20</frames>
+  
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>0</on>
+    <off>1</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>1</on>
+    <off>2</off>
+    <color>255,255,255</color>
+  </event>
+
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>2</on>
+    <off>3</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>3</on>
+    <off>4</off>
+    <color>255,255,255</color>
+  </event>
+
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>4</on>
+    <off>5</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>5</on>
+    <off>6</off>
+    <color>255,255,255</color>
+  </event>
+
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>6</on>
+    <off>7</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>7</on>
+    <off>8</off>
+    <color>255,255,255</color>
+  </event>
+
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>8</on>
+    <off>9</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>9</on>
+    <off>10</off>
+    <color>255,255,255</color>
+  </event>
+
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>10</on>
+    <off>11</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>11</on>
+    <off>12</off>
+    <color>255,255,255</color>
+  </event>
+
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>12</on>
+    <off>13</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>13</on>
+    <off>14</off>
+    <color>255,255,255</color>
+  </event>
+
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>14</on>
+    <off>15</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>15</on>
+    <off>16</off>
+    <color>255,255,255</color>
+  </event>
+
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>16</on>
+    <off>17</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>17</on>
+    <off>18</off>
+    <color>255,255,255</color>
+  </event>
+
+  <event>
+    <channel>2</channel>
+    <power>1.0</power>
+    <on>18</on>
+    <off>19</off>
+    <color>255,255,255</color>
+  </event>
+  <event>
+    <channel>4</channel>
+    <power>1.0</power>
+    <on>19</on>
+    <off>20</off>
+    <color>255,255,255</color>
+  </event>
+  
+</repeat>

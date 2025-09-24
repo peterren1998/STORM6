@@ -391,30 +391,27 @@
 	<parameters>
 	
 	  <offset_has_center_bar type="boolean">True</offset_has_center_bar>
-	  <offset_maximum type="float">1.500</offset_maximum>
-	  <offset_minimum type="float">0.2</offset_minimum>
-	  
-	  <offset_warning_high type="float">1.45</offset_warning_high>
-	  <offset_warning_low type="float">.25</offset_warning_low>
+	  <offset_maximum type="float">4</offset_maximum>
+	  <offset_warning_high type="float">3</offset_warning_high>
+	  <offset_warning_low type="float">-3</offset_warning_low>
+	  <offset_minimum type="float">-4</offset_minimum>
 	  
 	  <sum_maximum type="float">240000.0</sum_maximum>
 	  <sum_warning_low type="float">10000.0</sum_warning_low>
 	  <sum_minimum type="float">0.0</sum_minimum>
-	  
-	  
-	  
+
 	  
 	</parameters>
-	<background type="int">32000</background>
+	<background type="int">16000</background>
 	<camera_id type="int">1</camera_id>
 	<ini_file type="string">uc480_settings.ini</ini_file>
 	<offset_file type="string">C:\Users\neoSTORM6\Documents\STORM6\storm_control\hal4000\data\cam_offsets_storm6.txt</offset_file>
 	<pixel_clock type="int">25</pixel_clock>
     <sigma type="float">4.0</sigma> <!-- changed this sigma from 3.0 to 4.0 to better fit and visualize IR spots -->
 	<uc480_dll type="string">C:\Windows\SysWOW64\uc480_64.dll</uc480_dll>
-	<x_width type="int">320</x_width>
-	<y_width type="int">80</y_width>
-	<units_to_microns type="float">-0.03</units_to_microns> <!-- changed to -0.025 according to Aaron's suggestion -->
+	<x_width type="int">200</x_width>
+	<y_width type="int">60</y_width>
+	<units_to_microns type="float">-0.08</units_to_microns> <!-- changed to -0.025 according to Aaron's suggestion -->
 
   <!-- a minus sign is needed for proper feedback control, this converts lock poition into positive float -->
     <use_storm_analysis type="boolean">True</use_storm_analysis>
@@ -439,7 +436,7 @@
 	  </find_sum>
 	  <locked>
 	    <buffer_length type="int">5</buffer_length>
-	    <offset_threshold type="float">3000.0</offset_threshold>
+	    <offset_threshold type="float">20.0</offset_threshold>
 	  </locked>
 	  <scan>
         <minimum_sum type="float">20000</minimum_sum>

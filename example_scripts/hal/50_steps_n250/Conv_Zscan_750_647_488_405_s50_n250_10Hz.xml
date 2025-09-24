@@ -1,56 +1,108 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <settings>
-  <!-- camera settings -->
-  <camera1>
-
-    <!-- actual Andor features -->
-    <exposure_time type="float">0.10</exposure_time>
-
-    <!-- view settings -->
-    <flip_horizontal type="int">0</flip_horizontal>
-    <flip_vertical type="int">0</flip_vertical>
-    <transpose type="int">0</transpose>
-    <scalemax type="int">20000</scalemax>
-    <scalemin type="int">200</scalemin>
-    <max_intensity type="int">65536</max_intensity>
-    <colortable type="string">ramp_sat.ctbl</colortable>
-    <sync type="int">0</sync>
+  <camera1 validate="True">
+    <binning type="string">1x1</binning>
+    <default_max type="int">10000</default_max>
+    <default_min type="int">100</default_min>
+    <defect_correct_mode type="string">OFF</defect_correct_mode>
+    <exposure_time type="float">0.10000637593984964</exposure_time>
+    <extension type="string"/>
+    <flip_horizontal type="boolean">True</flip_horizontal>
+    <flip_vertical type="boolean">False</flip_vertical>
+    <fps type="float">9.999362446665053</fps>
+    <readout_speed type="int">2</readout_speed>
+    <saved type="boolean">True</saved>
+    <subarray_hpos type="int">0</subarray_hpos>
+    <subarray_hsize type="int">2048</subarray_hsize>
+    <subarray_vpos type="int">0</subarray_vpos>
+    <subarray_vsize type="int">2048</subarray_vsize>
+    <transpose type="boolean">True</transpose>
+    <trigger_source type="string">INTERNAL</trigger_source>
+    <x_bin type="int">1</x_bin>
+    <x_end type="int">256</x_end>
+    <x_pixels type="int">2048</x_pixels>
+    <x_start type="int">1</x_start>
+    <y_bin type="int">1</y_bin>
+    <y_end type="int">256</y_end>
+    <y_pixels type="int">2048</y_pixels>
+    <y_start type="int">1</y_start>
   </camera1>
-
-  <!-- film settings -->
-  <film>
-    <filename type="string">zscan_750_647_488_405_s50_n250</filename> 
+  <display00 validate="False">
+    <camera1 validate="True">
+      <center_x type="float">1025.0</center_x>
+      <center_y type="float">1025.0</center_y>
+      <colortable type="string">ramp_sat.ctbl</colortable>
+      <display_max type="int">37377</display_max>
+      <display_min type="int">100</display_min>
+      <initialized type="boolean">True</initialized>
+      <scale type="int">-1</scale>
+      <sync type="int">0</sync>
+    </camera1>
+    <feed_name type="string">camera1</feed_name>
+  </display00>
+  <film validate="False">
     <acq_mode type="string">fixed_length</acq_mode>
-    <frames type="int">200</frames>
-    <logfile type="string">D:\Pu\logs\image_log.txt</logfile>
-    <auto_increment type="int">1</auto_increment>
-    <auto_shutters type="int">1</auto_shutters>
-    <want_bell type="int">1</want_bell>
+    <auto_increment type="boolean">True</auto_increment>
+    <auto_shutters type="boolean">True</auto_shutters>
+    <extension type="string"/>
+    <filename type="string">zscan_750_647_488_405_s50_n250</filename>
     <filetype type="string">.dax</filetype>
+    <frames type="int">200</frames>
+    <want_bell type="boolean">True</want_bell>
   </film>
-  
-  <!-- illumination settings -->
-  <illumination>
-  	<default_power type="custom">0.198,0.098,0.0,0.1,0.045</default_power>
-  	<shutters type="string">shutter_750_647_488_405_s50.xml</shutters>
-    <on_off_state type="custom">False,False,False,False,False</on_off_state>
-    <power_buttons type="custom">[[['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.01]]]</power_buttons>
-  </illumination>
-
-  <!-- focus lock settings -->
-  <focuslock>
-	<locked>
+  <focuslock validate="True">
+    <calibrate validate="True">
+      <deadtime type="int">20</deadtime>
+      <frames_to_pause type="int">2</frames_to_pause>
+      <range type="float">600.0</range>
+      <step_size type="float">10.0</step_size>
+    </calibrate>
+    <find_sum validate="True">
+      <step_size type="float">0.25</step_size>
+    </find_sum>
+    <hardware_z_scan validate="True">
+      <z_offsets type="string">0.0,0.0,0.0,0.0,0.25,0.25,0.25,0.25,0.5,0.5,0.5,0.5,0.75,0.75,0.75,0.75,1.0,1.0,1.0,1.0,1.25,1.25,1.25,1.25,1.5,1.5,1.5,1.5,1.75,1.75,1.75,1.75,2.0,2.0,2.0,2.0,2.25,2.25,2.25,2.25,2.5,2.5,2.5,2.5,2.75,2.75,2.75,2.75,3.0,3.0,3.0,3.0,3.25,3.25,3.25,3.25,3.5,3.5,3.5,3.5,3.75,3.75,3.75,3.75,4.0,4.0,4.0,4.0,4.25,4.25,4.25,4.25,4.5,4.5,4.5,4.5,4.75,4.75,4.75,4.75,5.0,5.0,5.0,5.0,5.25,5.25,5.25,5.25,5.5,5.5,5.5,5.5,5.75,5.75,5.75,5.75,6.0,6.0,6.0,6.0,6.25,6.25,6.25,6.25,6.5,6.5,6.5,6.5,6.75,6.75,6.75,6.75,7.0,7.0,7.0,7.0,7.25,7.25,7.25,7.25,7.5,7.5,7.5,7.5,7.75,7.75,7.75,7.75,8.0,8.0,8.0,8.0,8.25,8.25,8.25,8.25,8.5,8.5,8.5,8.5,8.75,8.75,8.75,8.75,9.0,9.0,9.0,9.0,9.25,9.25,9.25,9.25,9.5,9.5,9.5,9.5,9.75,9.75,9.75,9.75,10.0,10.0,10.0,10.0,10.25,10.25,10.25,10.25,10.5,10.5,10.5,10.5,10.75,10.75,10.75,10.75,11.0,11.0,11.0,11.0,11.25,11.25,11.25,11.25,11.5,11.5,11.5,11.5,11.75,11.75,11.75,11.75,12.0,12.0,12.0,12.0,12.25,12.25,12.25,12.25</z_offsets>
+    </hardware_z_scan>
+    <jump_size type="float">0.1</jump_size>
+    <locked validate="True">
       <buffer_length type="int">4</buffer_length>
       <lock_gain type="float">0.1</lock_gain>
       <lock_gain_max type="float">0.1</lock_gain_max>
       <minimum_sum type="float">-1.0</minimum_sum>
       <offset_threshold type="float">50.0</offset_threshold>
     </locked>
-  	<hardware_z_scan>
-		<z_offsets type="string">0.0,0.0,0.0,0.0,0.25,0.25,0.25,0.25,0.5,0.5,0.5,0.5,0.75,0.75,0.75,0.75,1.0,1.0,1.0,1.0,1.25,1.25,1.25,1.25,1.5,1.5,1.5,1.5,1.75,1.75,1.75,1.75,2.0,2.0,2.0,2.0,2.25,2.25,2.25,2.25,2.5,2.5,2.5,2.5,2.75,2.75,2.75,2.75,3.0,3.0,3.0,3.0,3.25,3.25,3.25,3.25,3.5,3.5,3.5,3.5,3.75,3.75,3.75,3.75,4.0,4.0,4.0,4.0,4.25,4.25,4.25,4.25,4.5,4.5,4.5,4.5,4.75,4.75,4.75,4.75,5.0,5.0,5.0,5.0,5.25,5.25,5.25,5.25,5.5,5.5,5.5,5.5,5.75,5.75,5.75,5.75,6.0,6.0,6.0,6.0,6.25,6.25,6.25,6.25,6.5,6.5,6.5,6.5,6.75,6.75,6.75,6.75,7.0,7.0,7.0,7.0,7.25,7.25,7.25,7.25,7.5,7.5,7.5,7.5,7.75,7.75,7.75,7.75,8.0,8.0,8.0,8.0,8.25,8.25,8.25,8.25,8.5,8.5,8.5,8.5,8.75,8.75,8.75,8.75,9.0,9.0,9.0,9.0,9.25,9.25,9.25,9.25,9.5,9.5,9.5,9.5,9.75,9.75,9.75,9.75,10.0,10.0,10.0,10.0,10.25,10.25,10.25,10.25,10.5,10.5,10.5,10.5,10.75,10.75,10.75,10.75,11.0,11.0,11.0,11.0,11.25,11.25,11.25,11.25,11.5,11.5,11.5,11.5,11.75,11.75,11.75,11.75,12.0,12.0,12.0,12.0,12.25,12.25,12.25,12.25</z_offsets>
-	</hardware_z_scan>
-
+    <optimal_mode validate="True">
+      <bracket_step type="float">1000.0</bracket_step>
+      <quality_threshold type="float">0.0</quality_threshold>
+      <scan_hold type="int">10</scan_hold>
+      <scan_step type="float">100.0</scan_step>
+    </optimal_mode>
+    <scan validate="True">
+      <minimum_sum type="float">20000.0</minimum_sum>
+      <offset_threshold type="float">100.0</offset_threshold>
+      <scan_range type="float">10.0</scan_range>
+      <scan_step type="float">0.2</scan_step>
+    </scan>
   </focuslock>
-  
-
+  <illumination validate="True">
+    <default_power type="custom">0.472,0.312,0.000,0.100,0.045</default_power>
+    <on_off_state type="custom">False,False,False,False,False</on_off_state>
+    <power_buttons type="custom">[[['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.1]], [['Max', 1.0], ['Low', 0.01]]]</power_buttons>
+    <shutters type="string">shutter_750_647_488_405_s50.xml</shutters>
+  </illumination>
+  <mosaic validate="False">
+    <flip_horizontal type="boolean">False</flip_horizontal>
+    <flip_vertical type="boolean">True</flip_vertical>
+    <obj1 type="custom">60x,0.108,0.0,0.0</obj1>
+    <obj2 type="custom">10x,0.66,0.0,0.0</obj2>
+    <objective type="string">obj1</objective>
+    <transpose type="boolean">True</transpose>
+  </mosaic>
+  <stage validate="True">
+    <large_step_size type="float">25.0</large_step_size>
+    <small_step_size type="float">5.0</small_step_size>
+  </stage>
+  <timing validate="True">
+    <time_base type="string">camera1</time_base>
+  </timing>
 </settings>

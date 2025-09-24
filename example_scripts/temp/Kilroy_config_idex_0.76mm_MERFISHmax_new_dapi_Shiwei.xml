@@ -113,16 +113,16 @@
 
   <pump_commands>
     <pump_cmd name = "0.25 mL/min">
-      <pump_config speed = "5.5" direction = "Forward"></pump_config>
+      <pump_config speed = "6.4" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "0.50 mL/min">
-      <pump_config speed = "11.0" direction = "Forward"></pump_config>
+      <pump_config speed = "12.8" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "1.00 mL/min">
-      <pump_config speed = "22.0" direction = "Forward"></pump_config>
+      <pump_config speed = "25.6" direction = "Forward"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Reverse 0.50 mL/min">
-      <pump_config speed = "11.0" direction = "Reverse"></pump_config>
+      <pump_config speed = "12.8" direction = "Reverse"></pump_config>
     </pump_cmd>
     <pump_cmd name = "Stop Flow">
       <pump_config speed = "0.0"></pump_config>
@@ -195,6 +195,22 @@
       <pump duration = "210">Stop Flow</pump>
       <pump duration = "20">0.25 mL/min</pump>
       <pump duration = "210">Stop Flow</pump>
+    </protocol> 
+
+    <protocol name = "Flow DAPI 30">
+      <valve duration = "5">Set Hyb 30</valve>
+      <pump duration = "120">0.50 mL/min</pump>
+	    <pump duration = "10">Stop Flow</pump>
+      <pump duration = "10">0.25 mL/min</pump>
+      <pump duration = "10">Stop Flow</pump>
+    </protocol> 
+
+    <protocol name = "Flow 2xSSC 28">
+      <valve duration = "5">Set Hyb 28</valve>
+      <pump duration = "120">0.50 mL/min</pump>
+	    <pump duration = "10">Stop Flow</pump>
+      <pump duration = "10">0.25 mL/min</pump>
+      <pump duration = "10">Stop Flow</pump>
     </protocol> 
 
     <protocol name = "Flow 2xSSC">

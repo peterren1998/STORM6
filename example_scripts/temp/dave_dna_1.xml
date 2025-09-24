@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<recipe>
+
+<command_sequence>
+	<valve_protocol>Flow TCEP</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<!--Hyb 1 with valve 1 for C2-->
+	<valve_protocol>Hybridize 1</valve_protocol>
+	<delay>3000</delay>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\Bleach</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Bleach_750_647_561_s5"> </item>
+	</loop>
+	<delay>3000</delay>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow Common Readouts</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow DAPI 30</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Imaging Buffer</valve_protocol>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H1C2</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Zscan_750_647_561_405_s50_n250_10Hz"> </item>
+	</loop>
+	<delay>2000</delay>
+	<copy_directory>
+		<source_path>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H1C2</source_path>
+		<target_path>\\10.245.74.158\Chromatin_NAS_7\20240703-hM1_CTP14_from_Cx28_sample3\H1C2</target_path>
+		<delete_source>True</delete_source>
+	</copy_directory>
+	<valve_protocol>Flow TCEP</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<!--Hyb 2 with valve 2 for C3-->
+	<valve_protocol>Hybridize 2</valve_protocol>
+	<delay>3000</delay>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\Bleach</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Bleach_750_647_561_s5"> </item>
+	</loop>
+	<delay>3000</delay>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow Common Readouts</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow DAPI 30</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Imaging Buffer</valve_protocol>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H2C3</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Zscan_750_647_561_405_s50_n250_10Hz"> </item>
+	</loop>
+	<delay>2000</delay>
+	<copy_directory>
+		<source_path>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H2C3</source_path>
+		<target_path>\\10.245.74.158\Chromatin_NAS_7\20240703-hM1_CTP14_from_Cx28_sample3\H2C3</target_path>
+		<delete_source>True</delete_source>
+	</copy_directory>
+	<valve_protocol>Flow TCEP</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<!--Hyb 3 with valve 3 for C4-->
+	<valve_protocol>Hybridize 3</valve_protocol>
+	<delay>3000</delay>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\Bleach</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Bleach_750_647_561_s5"> </item>
+	</loop>
+	<delay>3000</delay>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow Common Readouts</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow DAPI 30</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Imaging Buffer</valve_protocol>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H3C4</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Zscan_750_647_561_405_s50_n250_10Hz"> </item>
+	</loop>
+	<delay>2000</delay>
+	<copy_directory>
+		<source_path>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H3C4</source_path>
+		<target_path>\\10.245.74.158\Chromatin_NAS_7\20240703-hM1_CTP14_from_Cx28_sample3\H3C4</target_path>
+		<delete_source>True</delete_source>
+	</copy_directory>
+	<valve_protocol>Flow TCEP</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<!--Hyb 4 with valve 4 for C5-->
+	<valve_protocol>Hybridize 4</valve_protocol>
+	<delay>3000</delay>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\Bleach</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Bleach_750_647_561_s5"> </item>
+	</loop>
+	<delay>3000</delay>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow Common Readouts</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow DAPI 30</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Imaging Buffer</valve_protocol>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H4C5</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Zscan_750_647_561_405_s50_n250_10Hz"> </item>
+	</loop>
+	<delay>2000</delay>
+	<copy_directory>
+		<source_path>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H4C5</source_path>
+		<target_path>\\10.245.74.158\Chromatin_NAS_7\20240703-hM1_CTP14_from_Cx28_sample3\H4C5</target_path>
+		<delete_source>True</delete_source>
+	</copy_directory>
+	<valve_protocol>Flow TCEP</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<!--Hyb 5 with valve 5 for C6-->
+	<valve_protocol>Hybridize 5</valve_protocol>
+	<delay>3000</delay>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\Bleach</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Bleach_750_647_561_s5"> </item>
+	</loop>
+	<delay>3000</delay>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow Common Readouts</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow DAPI 30</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Imaging Buffer</valve_protocol>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H5C6</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Zscan_750_647_561_405_s50_n250_10Hz"> </item>
+	</loop>
+	<delay>2000</delay>
+	<copy_directory>
+		<source_path>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H5C6</source_path>
+		<target_path>\\10.245.74.158\Chromatin_NAS_7\20240703-hM1_CTP14_from_Cx28_sample3\H5C6</target_path>
+		<delete_source>True</delete_source>
+	</copy_directory>
+	<valve_protocol>Flow TCEP</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<!--Hyb 6 with valve 6 for C7-->
+	<valve_protocol>Hybridize 6</valve_protocol>
+	<delay>3000</delay>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\Bleach</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Bleach_750_647_561_s5"> </item>
+	</loop>
+	<delay>3000</delay>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow Common Readouts</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Wash Buffer</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow 2xSSC 28</valve_protocol>
+	<valve_protocol>Flow DAPI 30</valve_protocol>
+	<valve_protocol>Incubate 10min</valve_protocol>
+	<valve_protocol>Flow Imaging Buffer</valve_protocol>
+	<change_directory>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H6C7</change_directory>
+	<wakeup>15000</wakeup>
+	<loop name="Position Loop Zscan" increment="name">
+		<item name="Zscan_750_647_561_405_s50_n250_10Hz"> </item>
+	</loop>
+	<delay>2000</delay>
+	<copy_directory>
+		<source_path>D:\Shiwei\20240703-hM1_CTP14_from_Cx28_sample3\H6C7</source_path>
+		<target_path>\\10.245.74.158\Chromatin_NAS_7\20240703-hM1_CTP14_from_Cx28_sample3\H6C7</target_path>
+		<delete_source>True</delete_source>
+	</copy_directory>
+
+</command_sequence>
+
+<item name = "Bleach_750_647_561_s5">
+  <movie>
+    <name increment = "Yes">bleach</name>
+        <overwrite>True</overwrite>
+    <length>3</length>
+    <parameters>Bleach_750_647_561_s5</parameters>
+    <delay>500</delay>
+    <check_focus>
+        <num_focus_checks>500</num_focus_checks>
+        <focus_scan/>
+    </check_focus>
+    <variable_entry name = "Position Loop Zscan"></variable_entry>
+  </movie>
+</item>
+
+<item name = "Zscan_750_647_561_405_s50_n250_10Hz">
+  <movie>
+    <name increment = "Yes">Conv_zscan</name>
+        <overwrite>True</overwrite>
+    <length>200</length>
+    <parameters>Conv_Zscan_750_647_561_405_s50_n250_10Hz</parameters>
+    <delay>500</delay>
+    <check_focus>
+        <num_focus_checks>500</num_focus_checks>
+        <focus_scan/>
+    </check_focus>
+    <variable_entry name = "Position Loop Zscan"></variable_entry>
+  </movie>
+</item>
+
+<item name = "Zscan_750_647_561_488_405_s50_n250_10Hz">
+  <movie>
+    <name increment = "Yes">Conv_zscan</name>
+        <overwrite>True</overwrite>
+    <length>250</length>
+    <parameters>Conv_Zscan_750_647_561_488_405_s50_n250_10Hz</parameters>
+    <delay>500</delay>
+    <check_focus>
+        <num_focus_checks>500</num_focus_checks>
+        <focus_scan/>
+    </check_focus>
+    <variable_entry name = "Position Loop Zscan"></variable_entry>
+  </movie>
+</item>
+
+<item name = "Zscan_750_647_561_488_s50_n250_10Hz">
+  <movie>
+    <name increment = "Yes">Conv_zscan</name>
+        <overwrite>True</overwrite>
+    <length>200</length>
+    <parameters>Conv_Zscan_750_647_561_488_s50_n250_10Hz</parameters>
+    <delay>500</delay>
+    <check_focus>
+        <num_focus_checks>500</num_focus_checks>
+        <focus_scan/>
+    </check_focus>
+    <variable_entry name = "Position Loop Zscan"></variable_entry>
+  </movie>
+</item>
+
+
+<loop_variable name = "Position Loop Zscan">
+   <file_path>adjusted_translated_positions_all.txt</file_path>
+</loop_variable>
+
+</recipe>
+
